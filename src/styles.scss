@@ -1,0 +1,54 @@
+body {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+  margin: 0;
+}
+
+.grid {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  transform: translateZ(0); // Does this make it render faster?
+}
+
+.row {
+  flex: 1;
+  display: flex;
+}
+
+.cell {
+  flex: 1;
+  outline: 1px solid #3A5463;
+  cursor: pointer;
+
+  // Dead
+  &[data-status='0'] {
+    background: #1C3645;
+  }
+
+  // Alive
+  &[data-status='1'] {
+    background: #D984A9;
+  }
+}
+
+.game-over {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 250px;
+  padding: 25px;
+  background: #fff;
+  border-radius: 10px;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+
+  h2 {
+    margin: 0 0 20px 0;
+  }
+}
