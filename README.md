@@ -1,2 +1,6 @@
 # game-of-life
-Created with CodeSandbox
+
+```
+npm install
+npm run start
+```
