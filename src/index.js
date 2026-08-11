@@ -1,6 +1,8 @@
+import './styles.css';
+
 // Configuration
-const ROW_COUNT = Math.floor(window.outerHeight / 30); // Results in roughly 30px squres
-const COLUMN_COUNT = Math.floor(window.outerWidth / 30); // Results in roughly 30px squres
+const ROW_COUNT = Math.floor(window.outerHeight / 30); // Results in roughly 30px squares
+const COLUMN_COUNT = Math.floor(window.outerWidth / 30); // Results in roughly 30px squares
 const ALIVE_RATIO = 0.5; // 50 percent of cells start alive
 const GENERATION_RATE_MS = 1000 / 5; // 5 FPS(ish)
 
@@ -20,7 +22,7 @@ function createGeneration(rows, columns) {
     .map(() => Array(columns).fill(DEAD));
 }
 
-// Create generation with specificed ratio randomly alivened cells
+// Create generation with specified ratio randomly alivened cells
 function createRandomizedGeneration(rows, columns, aliveRatio) {
   const randomizedGeneration = createGeneration(rows, columns);
 
@@ -67,7 +69,7 @@ function countAliveNeighbours(generation, row, column) {
       if (isCellAlive(generation, neighbourRow, neighbourColumn)) {
         count++;
       }
-    } catch (error) {
+    } catch {
       // The neighbour we are looking for does not exist
       // All cells surrounding the outside of the grid may have neighbours that do not exist
       // Alternativly I could have filtered out coordinates in the above array that are outside of bounds rather than use try/catch
@@ -83,7 +85,7 @@ function computeNextGeneration(generation) {
   const nextGeneration = cloneGeneration(generation);
 
   generation.forEach((row, rowIndex) => {
-    row.forEach((column, columnIndex) => {
+    row.forEach((_column, columnIndex) => {
       // Is the cell alive in the current generation
       const isAlive = isCellAlive(generation, rowIndex, columnIndex);
 
@@ -116,13 +118,13 @@ function computeNextGeneration(generation) {
 function isGenerationDead(generation) {
   try {
     generation.forEach((row, rowIndex) => {
-      row.forEach((column, columnIndex) => {
+      row.forEach((_column, columnIndex) => {
         if (isCellAlive(generation, rowIndex, columnIndex)) {
           throw new Error('Generation not dead');
         }
       });
     });
-  } catch (error) {
+  } catch {
     return false;
   }
 

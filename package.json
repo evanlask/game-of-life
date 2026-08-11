@@ -1,21 +1,26 @@
 {
   "name": "game-of-life",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Conway's Game of Life, running full-screen in the browser.",
+  "license": "UNLICENSED",
+  "type": "module",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
-  },
-  "dependencies": {
-    "parcel-bundler": "^1.6.1"
+    "build": "vp build",
+    "check": "vp check",
+    "check:fix": "vp check --fix",
+    "clean": "rm -rf .vite-hooks/_ *.log coverage dist node_modules",
+    "dev": "vp dev",
+    "prepare": "vp config",
+    "preview": "vp preview",
+    "test": "vp test --passWithNoTests",
+    "test:watch": "vp test watch"
   },
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "typescript": "4.4.4"
+    "typescript": "^7.0.0",
+    "vite-plus": "0.2.8"
   },
-  "resolutions": {
-    "@babel/preset-env": "7.13.8"
-  },
-  "keywords": []
+  "engines": {
+    "node": ">=24"
+  }
 }

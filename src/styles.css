@@ -1,5 +1,5 @@
 body {
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
 }
 
@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   user-select: none;
-  transform: translateZ(0); // Does this make it render faster?
+  transform: translateZ(0); /* Does this make it render faster? */
 }
 
 .row {
@@ -22,17 +22,17 @@ body {
 
 .cell {
   flex: 1;
-  outline: 1px solid #3A5463;
+  outline: 1px solid #3a5463;
   cursor: pointer;
 
-  // Dead
+  /* Dead */
   &[data-status='0'] {
-    background: #1C3645;
+    background: #1c3645;
   }
 
-  // Alive
+  /* Alive */
   &[data-status='1'] {
-    background: #D984A9;
+    background: #d984a9;
   }
 }
 
